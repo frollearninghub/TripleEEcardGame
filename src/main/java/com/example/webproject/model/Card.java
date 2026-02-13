@@ -2,6 +2,12 @@ package com.example.webproject.model;
 
 import com.example.webproject.Suit;
 
+
+/**
+ *
+ * Class to hold information about each card
+ *
+ */
 public class Card {
 
     Suit suit;
@@ -37,11 +43,8 @@ public class Card {
     public boolean equals(Object card) {
 
         if (card instanceof  Card) {
-            if (((Card)card).getNumber() == this.getNumber() && ((Card)card).getSuit() == this.getSuit()) {
-                return true;
-            } else {
-                return false;
-            }
+            return ((Card) card).getNumber() == this.getNumber() &&
+                    ((Card) card).getSuit() == this.getSuit();
         }
 
         return false;
