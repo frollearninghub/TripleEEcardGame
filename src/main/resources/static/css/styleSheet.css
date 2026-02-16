@@ -3,45 +3,60 @@ html {
     text-align:center
 }
 
-#board {
+#boardArea {
     position:relative;
-}
-
-
-#board table {
-    position: absolute;
-    left: 15%;
-    bottom:10%;
-
-    td {
-        width: 16em;
-        height: 7.5em;
+    margin: 5% 33% -2% 33%;
+    #boardCross {
+      mix-blend-mode:multiply;
     }
 
-}
-#boardCross {
-  mix-blend-mode:multiply;
-}
-#discardPile {
-    border: 1px solid red;
-    display: inline-block;
-    position: relative;
-    height:  91px;
-    margin-left: 10%;
-    top: 35%;
+    #gridContainer {
+        width: auto;
+        height: auto;
+        position:absolute;
+        top: 20%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+        grid: '. . .'
+              '. . .'
+              '. . .';
+        display: inline-grid;
+        grid-auto-columns: 33%;
+        grid-auto-rows: 33%;
 
-    span {
-        display: inline-block;
-        position: absolute;
 
-        margin-left: 40%;
-        color: red;
     }
 }
 
-.discardedCard {
+#playerArea {
      position: relative;
-    display:inline-block;
+     margin: 5% 33% 0% 33%;
+     display: block;
+
+
+    #discardArea {
+        height: 0%;
+        width: 20%;
+        position: relative;
+        display:block;
+        margin: 0% 0% 10% 80%;
+
+        img {
+            left: 0;
+            display: inline;
+            position: absolute;
+             margin-left: calc(sibling-index() * 8%);
+             z-index: sibling-index();
+        }
+    }
+
+    #handArea {
+        display:block;
+        position: relative;
+        margin: 10% 0% 10% 10%;
+        height: 50%;
+    }
 }
 
 
