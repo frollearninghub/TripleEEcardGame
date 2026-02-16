@@ -7,13 +7,10 @@ html {
     position:relative;
 }
 
-#board img {
-    mix-blend-mode:multiply;
-}
 
 #board table {
     position: absolute;
-    left: 30%;
+    left: 15%;
     bottom:10%;
 
     td {
@@ -21,6 +18,30 @@ html {
         height: 7.5em;
     }
 
+}
+#boardCross {
+  mix-blend-mode:multiply;
+}
+#discardPile {
+    border: 1px solid red;
+    display: inline-block;
+    position: relative;
+    height:  91px;
+    margin-left: 10%;
+    top: 35%;
+
+    span {
+        display: inline-block;
+        position: absolute;
+
+        margin-left: 40%;
+        color: red;
+    }
+}
+
+.discardedCard {
+     position: relative;
+    display:inline-block;
 }
 
 

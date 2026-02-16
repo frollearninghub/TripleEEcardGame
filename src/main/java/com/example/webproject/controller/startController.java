@@ -21,6 +21,7 @@ import java.util.*;
 public class startController {
     Random random = new Random();
     Card[] deck = new Card[52];
+    List<Card> discardDeck = new ArrayList<Card>(52);
     BoardSq[][] board = new BoardSq[3][3];
     Hand hand = null;
 

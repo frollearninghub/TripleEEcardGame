@@ -27,7 +27,7 @@
 
 
         <div id="board">
-            <img src="img/other/board.png"/>
+            <img id="boardCross" src="img/other/board.png"/>
                 <table>
                     <tr>
 
@@ -46,19 +46,24 @@
                         <td style="color:${board[2][2].getColor()}">${board[2][2].getName()}</td>
                     </tr>
                 </table>
+
+                <span id="discardPile">
+                    <span id="dicardText">Discard text</span>
+                </span>
+
         </div>
 
 
     <div id ="greenSpace">
         <c:forEach var="row" items="${hand.hand}" varStatus="handLoop">
-            <img src="${row.cardImg}" onclick="selectCard(${row.getNumber()},'${row.getSuit()}',${handLoop.index})" id="${handLoop.index}">
+            <img src="${row.cardImg}" onclick="selectCard(${row.getNumber()},'${row.getSuit()}','${row.cardImg}',${handLoop.index})" id="${handLoop.index}">
         </c:forEach>
         ${hand.getPokerHandName()}
     </div>
 
 
 <script type="text/javascript">
- function selectCard(number,suit,handIndex) {
+ function selectCard(number,suit,cardImg,handIndex) {
     if (document.getElementById(handIndex).classList.contains('selected')) {
         document.getElementById(handIndex).classList.remove('selected');
 
@@ -77,7 +82,13 @@
         .then(data =>  {
             let element = document.getElementById(handIndex)
             element.src = data.img;
-            element.onclick = function () {selectCard(data.number,data.suit,handIndex);};
+            element.onclick = function () {selectCard(data.number,data.suit,data.img,handIndex);};
+
+             let discardElement = document.getElementById('discardPile');
+             let discardCard = document.createElement("img");
+             discardCard.src = cardImg;
+             discardCard.classList.add('discardedCard')
+             discardElement.appendChild(discardCard)
         });
     }
 
